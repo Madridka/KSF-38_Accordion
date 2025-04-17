@@ -1,14 +1,14 @@
 <template>
-  <div></div>
+  <AccordionView/>
 </template>
 
 <script>
-import Accordion from "./components/Accordion.vue";
+import AccordionView from "./components/AccordionView.vue";
 
 export default {
   name: "App",
   components: {
-    Accordion,
+    AccordionView,
   },
 };
 </script>
