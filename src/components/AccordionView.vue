@@ -65,7 +65,6 @@ const toggleItem = (id) => {
 
   &__item {
     margin-bottom: 10px;
-    // border: 1px solid rgb(37, 37, 204);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     overflow: hidden;
@@ -93,6 +92,7 @@ const toggleItem = (id) => {
   &__content {
     max-height: 0;
     overflow: hidden;
+    padding: 8px;
 
     &-open {
       max-height: 500px;
@@ -100,7 +100,8 @@ const toggleItem = (id) => {
   }
 
   &__text {
-    padding-bottom: 16px;
+    font-size: 20px;
+    padding: 4px;
     margin: 10px;
     color: #555;
     line-height: 1.6;
