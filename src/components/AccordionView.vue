@@ -6,16 +6,16 @@
       :key="item.id"
       :class="{ 'accordion__item-active': activeItem === item.id }"
     >
-      <div class="accordion-header" @click.prevent="toggleItem(item.id)">
+      <div class="accordion__header" @click.prevent="toggleItem(item.id)">
         <span>{{ item.title }}</span>
         <span>{{ activeItem === item.id ? "-" : "+" }}</span>
       </div>
       <div v-if="activeItem === item.id">
         <div
-          class="accordion-content"
-          :class="{ 'accordion__item-active': activeItem === item.id }"
+          class="accordion__content"
+          :class="{ 'accordion__content-open': activeItem === item.id }"
         >
-          {{ item.content }}
+          <span class="accordion__text">{{ item.content }}</span>
         </div>
       </div>
     </div>
@@ -60,18 +60,50 @@ const toggleItem = (id) => {
 <style lang="scss" scoped>
 .accordion {
   margin: 20px auto;
-  width: 800px;
-  background-color: bisque;
+  padding: 20px;
+  width: 600px;
 
   &__item {
-    margin: 10px;
-    padding: 5px;
-    height: 30px;
-    border: 2px solid ghostwhite;
+    margin-bottom: 10px;
+    // border: 1px solid rgb(37, 37, 204);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
 
     &-active {
-      border-color: blue;
+      border: 1px solid #007bff;
     }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    color: #333;
+
+    &:hover {
+      background-color: #e9ecef;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+
+    &-open {
+      max-height: 500px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 16px;
+    margin: 10px;
+    color: #555;
+    line-height: 1.6;
   }
 }
 </style>
